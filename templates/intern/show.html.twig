@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Intern{% endblock %}
+
+{% block body %}
+    <h1>Intern</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ intern.id }}</td>
+            </tr>
+            <tr>
+                <th>First_name</th>
+                <td>{{ intern.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Last_name</th>
+                <td>{{ intern.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Duration</th>
+                <td>{{ intern.duration }}</td>
+            </tr>
+            <tr>
+                <th>Subject</th>
+                <td>{{ intern.subject }}</td>
+            </tr>
+            <tr>
+                <th>Salary</th>
+                <td>{{ intern.salary }}</td>
+            </tr>
+            <tr>
+                <th>Eval</th>
+                <td>{{ intern.eval }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_intern_index') }}">back to list</a>
+
+    <a href="{{ path('app_intern_edit', {'id': intern.id}) }}">edit</a>
+
+    {{ include('intern/_delete_form.html.twig') }}
+    <a href="{{ path('intern_export_single_pdf', {'id': intern.id}) }}" class="btn btn-primary">Download PDF</a>
+
+{% endblock %}

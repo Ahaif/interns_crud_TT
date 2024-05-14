@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Intern index{% endblock %}
+
+{% block body %}
+    <h1>Intern index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First_name</th>
+                <th>Last_name</th>
+                <th>Duration</th>
+                <th>Subject</th>
+                <th>Salary</th>
+                <th>Eval</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for intern in interns %}
+            <tr>
+                <td>{{ intern.id }}</td>
+                <td>{{ intern.firstName }}</td>
+                <td>{{ intern.lastName }}</td>
+                <td>{{ intern.duration }}</td>
+                <td>{{ intern.subject }}</td>
+                <td>{{ intern.salary }}</td>
+                <td>{{ intern.eval }}</td>
+                <td>
+                    <a href="{{ path('app_intern_show', {'id': intern.id}) }}">show</a>
+                    <a href="{{ path('app_intern_edit', {'id': intern.id}) }}">edit</a>
+                    <a href="{{ path('app_intern_delete', {'id': intern.id}) }}">delete</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_intern_new') }}">Create new</a>
+    <a href="{{ path('intern_export_pdf') }}" class="btn btn-primary">Export as PDF</a>
+
+{% endblock %}
