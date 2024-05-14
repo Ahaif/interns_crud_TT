@@ -3,46 +3,47 @@
 {% block title %}Intern{% endblock %}
 
 {% block body %}
-    <h1>Intern</h1>
+<main class="container py-4">
+    <h1 class="h3 mb-3 fw-normal">Intern Details</h1>
 
-    <table class="table">
+    <table class="table table-bordered">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th scope="row">Id</th>
                 <td>{{ intern.id }}</td>
             </tr>
             <tr>
-                <th>First_name</th>
+                <th scope="row">First Name</th>
                 <td>{{ intern.firstName }}</td>
             </tr>
             <tr>
-                <th>Last_name</th>
+                <th scope="row">Last Name</th>
                 <td>{{ intern.lastName }}</td>
             </tr>
             <tr>
-                <th>Duration</th>
+                <th scope="row">Duration</th>
                 <td>{{ intern.duration }}</td>
             </tr>
             <tr>
-                <th>Subject</th>
+                <th scope="row">Subject</th>
                 <td>{{ intern.subject }}</td>
             </tr>
             <tr>
-                <th>Salary</th>
+                <th scope="row">Salary</th>
                 <td>{{ intern.salary }}</td>
             </tr>
             <tr>
-                <th>Eval</th>
+                <th scope="row">Eval</th>
                 <td>{{ intern.eval }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_intern_index') }}">back to list</a>
-
-    <a href="{{ path('app_intern_edit', {'id': intern.id}) }}">edit</a>
-
-    {{ include('intern/_delete_form.html.twig') }}
-    <a href="{{ path('intern_export_single_pdf', {'id': intern.id}) }}" class="btn btn-primary">Download PDF</a>
-
+    <div class="d-flex justify-content-start gap-2 my-3">
+        <a href="{{ path('app_intern_index') }}" class="btn btn-outline-primary">Back to List</a>
+        <a href="{{ path('app_intern_edit', {'id': intern.id}) }}" class="btn btn-secondary">Edit</a>
+        {{ include('intern/_delete_form.html.twig') }}
+        <a href="{{ path('intern_export_single_pdf', {'id': intern.id}) }}" class="btn btn-primary">Download PDF</a>
+    </div>
+</main>
 {% endblock %}

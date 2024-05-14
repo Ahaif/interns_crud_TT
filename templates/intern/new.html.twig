@@ -3,9 +3,13 @@
 {% block title %}New Intern{% endblock %}
 
 {% block body %}
-    <h1>Create new Intern</h1>
+<main class="container py-4">
+    <h1 class="h3 mb-3 fw-normal">Create New Intern</h1>
 
-    {{ include('intern/_form.html.twig') }}
+    {{ include('intern/_form.html.twig', {'button_label': 'Create'}) }}
 
-    <a href="{{ path('app_intern_index') }}">back to list</a>
+    <div class="d-flex justify-content-start gap-2 my-3">
+        <a href="{{ path('app_intern_index') }}" class="btn btn-outline-primary">Back to List</a>
+    </div>
+</main>
 {% endblock %}

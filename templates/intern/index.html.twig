@@ -1,21 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Intern index{% endblock %}
+{% block title %}Interns Managment{% endblock %}
 
 {% block body %}
-    <h1>Intern index</h1>
+<main class="container py-4">
+    <h1 class="h3 mb-3 fw-normal">Interns Managment</h1>
 
     <table class="table">
-        <thead>
+        <thead class="table-light">
             <tr>
                 <th>Id</th>
-                <th>First_name</th>
-                <th>Last_name</th>
+                <th>First Name</th>
+                <th>Last Name</th>
                 <th>Duration</th>
                 <th>Subject</th>
                 <th>Salary</th>
                 <th>Eval</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -29,20 +30,19 @@
                 <td>{{ intern.salary }}</td>
                 <td>{{ intern.eval }}</td>
                 <td>
-                    <a href="{{ path('app_intern_show', {'id': intern.id}) }}">show</a>
-                    <a href="{{ path('app_intern_edit', {'id': intern.id}) }}">edit</a>
-                    <a href="{{ path('app_intern_delete', {'id': intern.id}) }}">delete</a>
+                    <a class="btn btn-sm btn-primary" href="{{ path('app_intern_show', {'id': intern.id}) }}">Show</a>
+                    <a class="btn btn-sm btn-secondary" href="{{ path('app_intern_edit', {'id': intern.id}) }}">Edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">no records found</td>
+                <td colspan="8">No records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_intern_new') }}">Create new</a>
-    <a href="{{ path('intern_export_pdf') }}" class="btn btn-primary">Export as PDF</a>
-
+    <a class="btn btn-lg btn-primary my-3" href="{{ path('app_intern_new') }}">Create New</a>
+    <a class="btn btn-lg btn-outline-primary" href="{{ path('intern_export_pdf') }}">Export as PDF</a>
+</main>
 {% endblock %}

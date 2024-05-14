@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<main class="form-signin w-100 m-auto">
+    <form method="post" action="/login">
+        {% if app.user %}
+            <div class="mb-3">
+                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+            </div>
+        {% else %}
+            <img class="mb-4" src="https://www.techtrend-solutions.com/wp-content/uploads/2021/06/logo3-1.jpg" alt="" width="92" height="67">
+            <h1 class="h3 mb-3 fw-normal">Welcome To Interns Managment Platform</h1>
+            <a class="btn btn-lg btn-primary w-100 py-2" href="{{ path('app_login') }}">Sign in</a>
+        {% endif %}
+    </form>
+</main>
+{% endblock %}

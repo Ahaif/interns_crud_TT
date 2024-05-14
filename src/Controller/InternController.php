@@ -57,7 +57,7 @@ class InternController extends AbstractController
     {
         $form = $this->createForm(InternType::class, $intern);
         $form->handleRequest($request);
-
+        
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
