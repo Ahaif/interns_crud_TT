@@ -20,9 +20,9 @@ class InternType extends AbstractType
                 'constraints' => [
                     new NotBlank([
                         'message' => 'First name is required.'
-                    ])
-                ],
+                    ])                ],
                 'attr' => ['class' => 'form-control', 'placeholder' => 'Enter first name']
+                
             ])
             ->add('last_name', TextType::class, [
                 'constraints' => [
@@ -30,6 +30,7 @@ class InternType extends AbstractType
                         'message' => 'Last name is required.'
                     ])
                 ],
+                'required' => true,
                 'attr' => ['class' => 'form-control', 'placeholder' => 'Enter last name', 'required' => true]
             ])
             ->add('duration', IntegerType::class, [
